@@ -181,7 +181,7 @@
 
         
         <a href="/2018/04/19/hexo-01-quick-start/" class="archive-article-date">
-  	<time datetime="2018-04-18T20:33:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
+  	<time datetime="2018-04-18T22:33:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
 </a>
         
       </header>
@@ -189,31 +189,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><h3 id="安装Git："><a href="#安装Git：" class="headerlink" title="安装Git："></a>安装Git：</h3><p>按照你的操作系统选择操作</p>
-<p><strong>Windows</strong>：下载并安装 <a href="https://git-scm.com/download/win" target="_blank" rel="external">git</a>.</p>
+<p><strong>Windows</strong>：下载并安装 <a href="https://git-scm.com/download/win">git</a>.</p>
 <p><strong>Mac</strong>：下载 安装程序 安装或使用 Homebrew, MacPorts ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install git</div></pre></td></tr></table></figure></p>
-<p><strong>Linux (Ubuntu, Debian)</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install git-core</div></pre></td></tr></table></figure></p>
-<p><strong>Linux (Fedora, Red Hat, CentOS)</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install git-core</div></pre></td></tr></table></figure></p>
-<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>安装 Node.js 的最佳方式是使用 nvm。</p>
-<p>cURL:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</div></pre></td></tr></table></figure></p>
-<p>Wget:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</div></pre></td></tr></table></figure></p>
-<p>安装完成后，重启终端并执行下列命令即可安装 Node.js。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ nvm install stable</div></pre></td></tr></table></figure>
-<p>或者您也可以下载 安装程序 来安装。</p>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>由于已经安装Node.js，所以我们使用npm安装Hexo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
-<h1 id="二、快速建站"><a href="#二、快速建站" class="headerlink" title="二、快速建站"></a>二、快速建站</h1><p>由于我使用的是Ubuntu系统，所以我下面的内容都是基于Linux系统来操作，Windows系统的操作大同小异。</p>
-<p>1.打开终端（Ctrl+T），执行初始化命令，其中myblog为你的博客文件夹名称（按需自定义）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init myblog</div><div class="line">$ cd myblog</div><div class="line">$ npm install</div></pre></td></tr></table></figure></p>
-<p>可以看到生成了下面一堆东西(后面会介绍这些文件夹是干什么的，这里先把博客跑起来)</p>
-<p><img src="/img/hexo-01-01.png" alt="hexo init"></p>
-<p>2.执行命令，让博客跑起来</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>执行结果如图，证明服务器端已经跑起来了</p>
-<p><img src="/img/hexo-01-02.png" alt="hexo server"></p>
-<p>3.打开浏览器，输入 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
-<p><img src="/img/hexo-01-03.png" alt="hexo"></p>
-<p>大功告成，本地版的Hexo博客已经搭建成功</p>
-<p>下面介绍一下上面初始化生成的文件夹的用途<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">myblog</div><div class="line">├── _config.yml     ##这是网站的配置文件</div><div class="line">├── package.json    ##博客使用的应用程序的信息，node.js的东西</div><div class="line">├── scaffolds       ##模板文件夹，保存写作模板的</div><div class="line">├── source          ##资源文件夹是存放用户资源的地方。主要就是存放文章，文章附带图片等等</div><div class="line">|   ├── _drafts     ##存储文章草稿</div><div class="line">|   └── _posts      ##存储发布的文章</div><div class="line">└── themes          ##网站主题文件夹，自定义主题放在这里</div></pre></td></tr></table></figure></p>
-<h1 id="资料："><a href="#资料：" class="headerlink" title="资料："></a>资料：</h1><p>Hexo 文档：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">https://hexo.io/zh-cn/docs/</a></p>
-
+        
+          <a class="article-more-a" href="/2018/04/19/hexo-01-quick-start/#more">more >></a>
+        
       
 
       
@@ -279,7 +259,7 @@
 
         
         <a href="/2018/04/19/hexo-00-plan/" class="archive-article-date">
-  	<time datetime="2018-04-18T19:24:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
+  	<time datetime="2018-04-18T22:24:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
 </a>
         
       </header>
@@ -288,27 +268,9 @@
       
         <p><img src="/img/hexo-01.jpeg" alt="Hexo+GitHub"></p>
 <p>相信许多人都想拥有一个属于自己博客，无论是拿来写文章，记录心情还是装X。毕竟有一个自己域名的网站跟那些多用户博客社区的逼格是不一样的。现在搭建博客已经是非常简单了，基本上都是傻瓜式搭建，只要拥有服务器，在网上下载一个博客引擎，按照说明书一步一步操作就可以了，如果想个性化就去找一些插件自定义。现在比较流行的博客引擎有Wordpress，Jekyll，Octopress和Hexo，至于哪个好用不好用，那就要看个人了，我看到网上很多人都是用wp，Hexo是程序员用的多，其他的不清楚。</p>
-<p>搭建个人博客最大的难题就是服务器，小型服务器一般人都不会考虑买，云服务器也要一定的花费，不过比自己买服务器肯定是要便宜的。像阿里云，腾讯云这些搞活动还是挺便宜的，最低配置，几块钱一个月都有。</p>
-<p>今天，我要搞一个免费的个人博客，完全不用购买服务器，基于Hexo+Github，主要包括以下内容：</p>
-<ol>
-<li><a href="#">【Hexo-01】使用Hexo快速建站</a></li>
-<li><a href="#">【Hexo-02】配置Hexo</a></li>
-<li><a href="#">【Hexo-03】部署Hexo到Github</a></li>
-<li><a href="#">【Hexo-04】部署Hexo到码云</a></li>
-<li><a href="#">【Hexo-05】使用主题Yilia</a></li>
-<li><a href="#">【Hexo-06】Yilia主题配置Gitment</a></li>
-<li><a href="#">【Hexo-07】Hexo写作</a></li>
-<li><a href="#">【Hexo-08】扩展1:xxx</a></li>
-<li><a href="#">【Hexo-09】扩展2:xxx</a></li>
-<li><a href="#">【Hexo-10】扩展3:xxx</a></li>
-</ol>
-<p>使用Hexo搭建个人博客需要具备以下知识：</p>
-<ol>
-<li>Git操作以及Github的使用</li>
-<li>Node.js</li>
-<li>Linux基本操作</li>
-</ol>
-
+        
+          <a class="article-more-a" href="/2018/04/19/hexo-00-plan/#more">more >></a>
+        
       
 
       
@@ -374,7 +336,7 @@
 
         
         <a href="/2018/04/19/appimage/" class="archive-article-date">
-  	<time datetime="2018-04-18T18:52:04.307Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
+  	<time datetime="2018-04-18T17:24:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
 </a>
         
       </header>
@@ -383,22 +345,9 @@
       
         <p>今天在更新Linux版为知笔记客户端的时候，发现最新的客户端的安装文件打包成了AppImage的格式，官方将其命名为绿色版，即不用安装即可直接运行。刚开始接触到这种文件，还不知道怎么弄，上网查一下资料。  </p>
 <p><img src="/img/AppImage.png" alt="AppImage"></p>
-<h2 id="什么是AppImage格式？"><a href="#什么是AppImage格式？" class="headerlink" title="什么是AppImage格式？"></a>什么是AppImage格式？</h2><p>AppImage的官网是 <a href="https://appimage.org/" target="_blank" rel="external">https://appimage.org/</a> 。  </p>
-<p>下面是官方的描述：</p>
-<blockquote>
-<p>使用AppImage格式分发Linux桌面应用程序，让所有常见发行版的用户运行它。<br>一次打包，到处运行。 覆盖所有主流桌面系统。  </p>
-<p>简单.</p>
-<p>AppImage的核心思想是一个应用程序 = 一个文件<br>。每个AppImage都包含应用程序以及应用程序运行所需的所有文件。换句话说，除了操作系统本身的基础组件，Appimage不需要依赖包即可运行。</p>
-<p>可靠.</p>
-<p>AppImage是上游应用打包的理想选择，这意味着你可以直接从开发者那里获取软件，而不需要任何中间步骤，这完全符合开发者意图。非常迅速。</p>
-<p>快速.</p>
-<p>AppImage应用可以直接下载并且运行，无需安装，并且不需要root权限。</p>
-</blockquote>
-<h2 id="如何运行一个AppImage应用？"><a href="#如何运行一个AppImage应用？" class="headerlink" title="如何运行一个AppImage应用？"></a>如何运行一个AppImage应用？</h2><p>首先需要给AppImage文件加可运行权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chmod a+x Subsurface*.AppImage</div></pre></td></tr></table></figure>
-<p>然后像运行脚本一样直接运行即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./Subsurface*.AppImage</div></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2018/04/19/appimage/#more">more >></a>
+        
       
 
       
@@ -462,29 +411,24 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/22/hello-world/">Hello World</a>
+      <a class="article-title" href="/2018/04/19/hello-world/">Hello World</a>
     </h1>
   
 
         
-        <a href="/2017/04/22/hello-world/" class="archive-article-date">
-  	<time datetime="2017-04-22T08:17:08.794Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+        <a href="/2018/04/19/hello-world/" class="archive-article-date">
+  	<time datetime="2018-04-18T17:21:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        
+          <a class="article-more-a" href="/2018/04/19/hello-world/#more">more >></a>
+        
       
 
       
@@ -496,7 +440,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/22/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/04/19/hello-world/">展开全文 >></a>
         </p>
       
 
