@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://mkh10086.github.io">
-  <title>Archives: 2018 | Conca</title>
+  <title>MySQL解决中文乱码 | Conca</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术菜鸟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Conca">
-<meta property="og:url" content="http://mkh10086.github.io/archives/2018/index.html">
+  <meta name="description" content="MySQL中文乱码是一个常见的问题，解决方法也是非常简单的。由于MySQL默认编码是latin1，所以不支持中文。中文编码有好几种，例如gbk，gb2312等等，但是我建议使用utf8编码，并且全局都使用utf8编码。 不过由于现在许多应用都开始Emoji表情，所以我这里使用utf8mb4编码。（注意：MySQL需要升级到5.5.3或更新的版本） 一、关于版本的区别引用一段说明：  官网说：从5.">
+<meta name="keywords" content="mysql,mysql配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL解决中文乱码">
+<meta property="og:url" content="http://mkh10086.github.io/2018/05/03/mysql-01-setting/index.html">
 <meta property="og:site_name" content="Conca">
-<meta property="og:description" content="技术菜鸟">
+<meta property="og:description" content="MySQL中文乱码是一个常见的问题，解决方法也是非常简单的。由于MySQL默认编码是latin1，所以不支持中文。中文编码有好几种，例如gbk，gb2312等等，但是我建议使用utf8编码，并且全局都使用utf8编码。 不过由于现在许多应用都开始Emoji表情，所以我这里使用utf8mb4编码。（注意：MySQL需要升级到5.5.3或更新的版本） 一、关于版本的区别引用一段说明：  官网说：从5.">
+<meta property="og:updated_time" content="2018-05-03T12:05:35.605Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Conca">
-<meta name="twitter:description" content="技术菜鸟">
+<meta name="twitter:title" content="MySQL解决中文乱码">
+<meta name="twitter:description" content="MySQL中文乱码是一个常见的问题，解决方法也是非常简单的。由于MySQL默认编码是latin1，所以不支持中文。中文编码有好几种，例如gbk，gb2312等等，但是我建议使用utf8编码，并且全局都使用utf8编码。 不过由于现在许多应用都开始Emoji表情，所以我这里使用utf8mb4编码。（注意：MySQL需要升级到5.5.3或更新的版本） 一、关于版本的区别引用一段说明：  官网说：从5.">
   
     <link rel="alternative" href="/atom.xml" title="Conca" type="application/atom+xml">
   
@@ -166,36 +168,106 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mysql-01-setting" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/03/mysql-01-setting/" class="archive-article-date">
-  	<time datetime="2018-05-03T09:00:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/03/mysql-01-setting/">MySQL解决中文乱码</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL解决中文乱码
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/05/03/mysql-01-setting/" class="archive-article-date">
+  	<time datetime="2018-05-03T09:00:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
+</a>
+        
+
+        
+        		<span class="archive-article-date">
+        			阅读(<span id="busuanzi_value_page_pv"></span>)
+        		</span>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MySQL中文乱码是一个常见的问题，解决方法也是非常简单的。由于MySQL默认编码是<code>latin1</code>，所以不支持中文。中文编码有好几种，例如<code>gbk</code>，<code>gb2312</code>等等，但是我建议使用<code>utf8</code>编码，并且全局都使用<code>utf8</code>编码。</p>
+<p>不过由于现在许多应用都开始Emoji表情，所以我这里使用<code>utf8mb4</code>编码。（<strong>注意：MySQL需要升级到5.5.3或更新的版本</strong>）</p>
+<h1 id="一、关于版本的区别"><a href="#一、关于版本的区别" class="headerlink" title="一、关于版本的区别"></a>一、关于版本的区别</h1><p>引用一段说明：</p>
+<blockquote>
+<p>官网说：从5.7.18开始不在二进制包中提供my-default.cnf文件。参考：<a href="https://dev.mysql.com/doc/refman/5.7/en/binary-installation.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.7/en/binary-installation.html</a></p>
+<p>经过测试，在5.7.18版本中，使用tar.gz安装时，也就是压缩包解压出来安装这种，已经不再需要my.cnf文件也能正常运行。</p>
+<p>my.cnf文件就是把在命令行上启动MySQL时后面的参数用cnf文件配置好，那么下载启动时就不再需要在命令上加如参数。</p>
+<p>这个my.cnf文件可以是自定义位置，也可以使用如下默认的位置，只要放在默认位置，MySQL自动识别（通过deb或者APT源安装的，初始位置在下方列表）：<br>在Unix和类Unix系统上读取选项文件<br>文件名                    目的<br>/etc/my.cnf              全局选项<br>/etc/mysql/my.cnf        全局选项<br>SYSCONFDIR/my.cnf        全局选项<br>$MYSQL_HOME/my.cnf       服务器特定选项（仅限服务器）<br>defaults-extra-file      指定的文件 –defaults-extra-file（如果有的话）<br>~/.my.cnf                用户特定的选项<br>~/.mylogin.cnf           用户特定的登录路径选项（仅限客户端）    </p>
+<p>在上表中，~表示当前用户的主目录（的值 $HOME）。<br>首先它会找/etc/my.cnf 这个文件， 如果这个文件不存在，那么它接下来去找/etc/mysql/my.cnf这个文件，依此类推</p>
+</blockquote>
+<p>所有如果你使用的MySQL版本大于或等于5.7.18，就要从上面的路径中查找到my.cnf文件，然后进行配置。<br>如果是少于5.7.18，直接打开/etc/my.cnf文件进行配置。<br>对于Windows系统，原理差不多，大家自行谷歌，因为MySQL很少会装在Windows服务器。</p>
+<a id="more"></a>
+<h1 id="二、解决中文乱码问题"><a href="#二、解决中文乱码问题" class="headerlink" title="二、解决中文乱码问题"></a>二、解决中文乱码问题</h1><p>=================================================</p>
+<p>MySQL版本：5.7.22</p>
+<p>服务器：Ubuntu 17.10 amd64</p>
+<p>=================================================</p>
+<h3 id="1、查看MySQL数据库编码"><a href="#1、查看MySQL数据库编码" class="headerlink" title="1、查看MySQL数据库编码"></a>1、查看MySQL数据库编码</h3><p>方法一：通过 <code>status</code> 命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">mysql&gt; status</div><div class="line">--------------</div><div class="line">mysql  Ver 14.14 Distrib 5.7.22, for Linux (x86_64) using  EditLine wrapper</div><div class="line"></div><div class="line">Connection id:		3</div><div class="line">Current database:</div><div class="line">Current user:		root@localhost</div><div class="line">SSL:			Not in use</div><div class="line">Current pager:		stdout</div><div class="line">Using outfile:		&apos;&apos;</div><div class="line">Using delimiter:	;</div><div class="line">Server version:		5.7.22-0ubuntu0.17.10.1 (Ubuntu)</div><div class="line">Protocol version:	10</div><div class="line">Connection:		Localhost via UNIX socket</div><div class="line">Server characterset:	utf8mb4</div><div class="line">Db     characterset:	utf8mb4</div><div class="line">Client characterset:	utf8mb4</div><div class="line">Conn.  characterset:	utf8mb4</div><div class="line">UNIX socket:		/var/run/mysqld/mysqld.sock</div><div class="line">Uptime:			29 min 55 sec</div><div class="line"></div><div class="line">Threads: 1  Questions: 5  Slow queries: 0  Opens: 107  Flush tables: 1  Open tables: 26  Queries per second avg: 0.002</div><div class="line">--------------</div></pre></td></tr></table></figure></p>
+<p>看下面这四部分，默认不是utf8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Server characterset:    utf8mb4</div><div class="line">Db     characterset:    utf8mb4</div><div class="line">Client characterset:    utf8mb4</div><div class="line">Conn.  characterset:    utf8mb4</div></pre></td></tr></table></figure></p>
+<p>方法二：通过 <code>show variables like &#39;%char%&#39;;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show variables like &apos;%char%&apos;;</div><div class="line">+--------------------------+----------------------------+</div><div class="line">| Variable_name            | Value                      |</div><div class="line">+--------------------------+----------------------------+</div><div class="line">| character_set_client     | utf8mb4                    |</div><div class="line">| character_set_connection | utf8mb4                    |</div><div class="line">| character_set_database   | utf8mb4                    |</div><div class="line">| character_set_filesystem | binary                     |</div><div class="line">| character_set_results    | utf8mb4                    |</div><div class="line">| character_set_server     | utf8mb4                    |</div><div class="line">| character_set_system     | utf8                       |</div><div class="line">| character_sets_dir       | /usr/share/mysql/charsets/ |</div><div class="line">+--------------------------+----------------------------+</div><div class="line">8 rows in set (0.54 sec)</div></pre></td></tr></table></figure></p>
+<h3 id="2、设置MySQL数据库编码"><a href="#2、设置MySQL数据库编码" class="headerlink" title="2、设置MySQL数据库编码"></a>2、设置MySQL数据库编码</h3><p>打开 <code>/etc/mysql/my.cnf</code> 文件，修改为如下设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[client]  </div><div class="line">default-character-set=utf8mb4</div><div class="line"></div><div class="line">[mysql]  </div><div class="line">default-character-set=utf8mb4</div><div class="line"></div><div class="line">[mysqld]  </div><div class="line">collation-server = utf8mb4_general_ci</div><div class="line">character-set-server = utf8mb4</div></pre></td></tr></table></figure>
+<p>重启MySQL服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mysql restart</div></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/mysql restart</div></pre></td></tr></table></figure></p>
+<p>通过<code>status</code>或者<code>show variables like &#39;%char%&#39;;</code>查看编码，已经全部设置为utf8mb4，搞定了。</p>
+<p><strong>验证一下</strong>：</p>
+<p>创建数据库  <code>test01</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create database test01;</div><div class="line">Query OK, 1 row affected (0.07 sec)</div><div class="line"></div><div class="line">mysql&gt; use test01;</div><div class="line">Database changed</div><div class="line">mysql&gt; status;</div><div class="line">--------------</div><div class="line">mysql  Ver 14.14 Distrib 5.7.22, for Linux (x86_64) using  EditLine wrapper</div><div class="line"></div><div class="line">Connection id:		3</div><div class="line">Current database:	test01</div><div class="line">Current user:		root@localhost</div><div class="line">SSL:			Not in use</div><div class="line">Current pager:		stdout</div><div class="line">Using outfile:		&apos;&apos;</div><div class="line">Using delimiter:	;</div><div class="line">Server version:		5.7.22-0ubuntu0.17.10.1 (Ubuntu)</div><div class="line">Protocol version:	10</div><div class="line">Connection:		Localhost via UNIX socket</div><div class="line">Server characterset:	utf8mb4</div><div class="line">Db     characterset:	utf8mb4</div><div class="line">Client characterset:	utf8mb4</div><div class="line">Conn.  characterset:	utf8mb4</div><div class="line">UNIX socket:		/var/run/mysqld/mysqld.sock</div><div class="line">Uptime:			21 min 47 sec</div><div class="line"></div><div class="line">Threads: 1  Questions: 40  Slow queries: 0  Opens: 120  Flush tables: 1  Open tables: 38  Queries per second avg: 0.030</div><div class="line">--------------</div></pre></td></tr></table></figure></p>
+<p>创建表<code>t_user</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create table t_user(id int);                                                                                      Query OK, 0 rows affected (0.44 sec)</div><div class="line"></div><div class="line">mysql&gt; show create table t_user;</div><div class="line">+--------+---------------------------------------------------------------------------------------------+</div><div class="line">| Table  | Create Table                                                                                |</div><div class="line">+--------+---------------------------------------------------------------------------------------------+</div><div class="line">| t_user | CREATE TABLE `t_user` (</div><div class="line">  `id` int(11) DEFAULT NULL</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 |</div><div class="line">+--------+---------------------------------------------------------------------------------------------+</div><div class="line">1 row in set (0.00 sec)</div></pre></td></tr></table></figure></p>
+<p>一切正常。</p>
+<h3 id="3、解决一些残余问题"><a href="#3、解决一些残余问题" class="headerlink" title="3、解决一些残余问题"></a>3、解决一些残余问题</h3><p>可能有些同学发现，我明明已经修改成功了，为什么我通过看<code>status</code>命令查看编码还是<code>latin1</code>，是不是设置出了问题？其实不是，这是因为你进入了某个数据库，然后查看的是当前数据库的编码，这个数据库很可能是你在修改编码前已经创建了，所以我们要自己修改一下数据库编码即可。</p>
+<h6 id="3-1、修改数据库编码"><a href="#3-1、修改数据库编码" class="headerlink" title="3.1、修改数据库编码"></a>3.1、修改数据库编码</h6><p>查看数据库编码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">mysql&gt; use test</div><div class="line">Reading table information for completion of table and column names</div><div class="line">You can turn off this feature to get a quicker startup with -A</div><div class="line"></div><div class="line">Database changed</div><div class="line">mysql&gt; status</div><div class="line">--------------</div><div class="line">mysql  Ver 14.14 Distrib 5.7.22, for Linux (x86_64) using  EditLine wrapper</div><div class="line"></div><div class="line">Connection id:		3</div><div class="line">Current database:	test</div><div class="line">Current user:		root@localhost</div><div class="line">SSL:			Not in use</div><div class="line">Current pager:		stdout</div><div class="line">Using outfile:		&apos;&apos;</div><div class="line">Using delimiter:	;</div><div class="line">Server version:		5.7.22-0ubuntu0.17.10.1 (Ubuntu)</div><div class="line">Protocol version:	10</div><div class="line">Connection:		Localhost via UNIX socket</div><div class="line">Server characterset:	utf8mb4</div><div class="line">Db     characterset:	latin1</div><div class="line">Client characterset:	utf8mb4</div><div class="line">Conn.  characterset:	utf8mb4</div><div class="line">UNIX socket:		/var/run/mysqld/mysqld.sock</div><div class="line">Uptime:			17 sec</div><div class="line"></div><div class="line">Threads: 1  Questions: 24  Slow queries: 0  Opens: 119  Flush tables: 1  Open tables: 38  Queries per second avg: 1.411</div><div class="line">--------------</div></pre></td></tr></table></figure></p>
+<p>这里的<code>Db characterset:</code>还是<code>latin1</code>。</p>
+<p>修改数据库编码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">mysql&gt; alter database test CHARACTER SET utf8mb4;</div><div class="line">Query OK, 1 row affected (0.05 sec)</div><div class="line"></div><div class="line">mysql&gt; status</div><div class="line">--------------</div><div class="line">mysql  Ver 14.14 Distrib 5.7.22, for Linux (x86_64) using  EditLine wrapper</div><div class="line"></div><div class="line">Connection id:		3</div><div class="line">Current database:	test</div><div class="line">Current user:		root@localhost</div><div class="line">SSL:			Not in use</div><div class="line">Current pager:		stdout</div><div class="line">Using outfile:		&apos;&apos;</div><div class="line">Using delimiter:	;</div><div class="line">Server version:		5.7.22-0ubuntu0.17.10.1 (Ubuntu)</div><div class="line">Protocol version:	10</div><div class="line">Connection:		Localhost via UNIX socket</div><div class="line">Server characterset:	utf8mb4</div><div class="line">Db     characterset:	utf8mb4</div><div class="line">Client characterset:	utf8mb4</div><div class="line">Conn.  characterset:	utf8mb4</div><div class="line">UNIX socket:		/var/run/mysqld/mysqld.sock</div><div class="line">Uptime:			7 min 44 sec</div><div class="line"></div><div class="line">Threads: 1  Questions: 29  Slow queries: 0  Opens: 119  Flush tables: 1  Open tables: 38  Queries per second avg: 0.062</div><div class="line">--------------</div></pre></td></tr></table></figure></p>
+<h6 id="3-2、修改表编码"><a href="#3-2、修改表编码" class="headerlink" title="3.2、修改表编码"></a>3.2、修改表编码</h6><p>查看表的编码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show create table t_character;</div><div class="line">+-------------+-------------------------------------------------------------------------------------------------+</div><div class="line">| Table       | Create Table                                                                                    |</div><div class="line">+-------------+-------------------------------------------------------------------------------------------------+</div><div class="line">| t_character | CREATE TABLE `t_character` (</div><div class="line">  `id` int(11) DEFAULT NULL</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=latin1 |</div><div class="line">+-------------+-------------------------------------------------------------------------------------------------+</div><div class="line">1 row in set (0.13 sec)</div></pre></td></tr></table></figure></p>
+<p>修改数据表的编码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">mysql&gt; alter table t_character default character set utf8mb4;</div><div class="line">Query OK, 0 rows affected (0.63 sec)</div><div class="line">Records: 0  Duplicates: 0  Warnings: 0</div><div class="line"></div><div class="line">mysql&gt; show create table t_character;</div><div class="line">+-------------+--------------------------------------------------------------------------------------------------+</div><div class="line">| Table       | Create Table                                                                                     |</div><div class="line">+-------------+--------------------------------------------------------------------------------------------------+</div><div class="line">| t_character | CREATE TABLE `t_character` (</div><div class="line">  `id` int(11) DEFAULT NULL</div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 |</div><div class="line">+-------------+--------------------------------------------------------------------------------------------------+</div><div class="line">1 row in set (0.00 sec)</div></pre></td></tr></table></figure></p>
+<p>参考资料：</p>
+<ol>
+<li><a href="http://blog.51cto.com/moerjinrong/2092791" target="_blank" rel="external">MySQL 5.7 my.cnf配置文件说明</a></li>
+<li><a href="https://www.cnblogs.com/curious2017/p/6308839.html" target="_blank" rel="external">MySQL中文编码设置为utf-8</a></li>
+<li><a href="https://www.liaoxuefeng.com/article/00145803336427519ae82a6c5b5474682c0c4ba5b47fb33000" target="_blank" rel="external">让应用程序支持emoji字符</a></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -211,277 +283,125 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://mkh10086.github.io/2018/05/03/mysql-01-setting/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/30/bbs-01-all/" class="archive-article-date">
-  	<time datetime="2018-04-30T02:48:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/04/30/bbs-01-all/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          bbs-01-all
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/30/bbs-01-all/">bbs-01-all</a>
-    </h1>
+        
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/28/chrome-plugin-01-jsonview/" class="archive-article-date">
-  	<time datetime="2018-04-27T22:29:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/28/chrome-plugin-01-jsonview/">【chrome插件01】JSON格式化插件-JSONView</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">chrome插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/19/hexo-05-theme-yilia/" class="archive-article-date">
-  	<time datetime="2018-04-19T15:19:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/19/hexo-05-theme-yilia/">【Hexo-05】使用主题Yilia</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/19/hexo-04-gitee/" class="archive-article-date">
-  	<time datetime="2018-04-19T01:47:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/19/hexo-04-gitee/">【Hexo-04】部署Hexo到码云</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/19/hexo-03-github/" class="archive-article-date">
-  	<time datetime="2018-04-19T00:54:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/19/hexo-03-github/">【Hexo-03】部署Hexo到Github</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/19/hexo-02-setting/" class="archive-article-date">
-  	<time datetime="2018-04-18T23:58:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/19/hexo-02-setting/">【Hexo-02】配置Hexo</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/19/hexo-01-quick-start/" class="archive-article-date">
-  	<time datetime="2018-04-18T22:33:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/19/hexo-01-quick-start/">【Hexo-01】使用Hexo快速建站</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://mkh10086.github.io/2018/05/03/mysql-01-setting/",
+  owner: 'mkh10086',
+  repo: 'mkh10086.github.io',
+  oauth: {
+    client_id: '2db88e457d166fbaa08a',
+    client_secret: '0c3e8a648c81198303517855354f9751a2b11a39',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -510,8 +430,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
