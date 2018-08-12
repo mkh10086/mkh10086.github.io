@@ -359,19 +359,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、加入百度站长统计"><a href="#一、加入百度站长统计" class="headerlink" title="一、加入百度站长统计"></a>一、加入百度站长统计</h1><p>Yilia中默认已经加入了百度站长统计功能，只需要配置百度站长统计的key即可。<br>首先注册站长帐号<a href="https://tongji.baidu.com" target="_blank" rel="external">https://tongji.baidu.com</a></p>
-<p>选择站长版</p>
-<img src="/2018/04/20/hexo-10-analytics/1.png" alt="1" title="1">
-<p>添加网站</p>
-<img src="/2018/04/20/hexo-10-analytics/2.png" alt="2" title="2">
-<p>获取代码，获取<code>hm.src</code>中的？后面的参数，即为key<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var _hmt = _hmt || [];</div><div class="line">(function() &#123;</div><div class="line">  var hm = document.createElement(&quot;script&quot;);</div><div class="line">  hm.src = &quot;https://hm.baidu.com/hm.js?xxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;;</div><div class="line">  var s = document.getElementsByTagName(&quot;script&quot;)[0];</div><div class="line">  s.parentNode.insertBefore(hm, s);</div><div class="line">&#125;)();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>配置Yilia主题中的百度统计，加入刚刚获取的key<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># Miscellaneous</div><div class="line">baidu_analytics: &apos;xxxxxxxxxxxxxxxxxxxxxxxxxxx&apos;</div></pre></td></tr></table></figure></p>
-<p>重新部署博客到github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
-<p>查看网站统计<br><img src="/2018/04/20/hexo-10-analytics/3.png" alt="3" title="3"></p>
-<h1 id="二、使用不蒜子网站访问量显示"><a href="#二、使用不蒜子网站访问量显示" class="headerlink" title="二、使用不蒜子网站访问量显示"></a>二、使用不蒜子网站访问量显示</h1><p>在<code>themes\yilia\layout\_partial</code>下的<code>footer.ejs</code>中加入如下注释中的代码即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;footer id=&quot;footer&quot;&gt;</div><div class="line">  &lt;div class=&quot;outer&quot;&gt;</div><div class="line">    &lt;div id=&quot;footer-info&quot;&gt;</div><div class="line">    	&lt;div class=&quot;footer-left&quot;&gt;</div><div class="line">    		&amp;copy; &lt;%= date(new Date(), &apos;YYYY&apos;) %&gt; &lt;%= config.author || config.title %&gt;</div><div class="line"></div><div class="line">        &lt;!--卜算子统计start--&gt;</div><div class="line">      	&lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</div><div class="line">      	&lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;</div><div class="line">			     本站总访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次</div><div class="line">		    &lt;/span&gt;</div><div class="line">      	&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</div><div class="line">  			   总访客数&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;人次</div><div class="line">  		  &lt;/span&gt;</div><div class="line">      	&lt;!--统计end--&gt;</div><div class="line"></div><div class="line">      &lt;/div&gt;</div><div class="line">      	&lt;div class=&quot;footer-right&quot;&gt;</div><div class="line">      		&lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot;&gt;Hexo&lt;/a&gt;  Theme &lt;a href=&quot;https://github.com/litten/hexo-theme-yilia&quot; target=&quot;_blank&quot;&gt;Yilia&lt;/a&gt; by Litten</div><div class="line">      	&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/footer&gt;</div></pre></td></tr></table></figure></p>
-<p>加入文章访问量显示，在<code>themes\yilia\layout\_partial</code>下的<code>article.ejs</code>的<code>&lt;header class=&quot;article-header&quot;&gt;</code>中加入如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;% if ( !index )&#123; %&gt;</div><div class="line">		&lt;span class=&quot;archive-article-date&quot;&gt;</div><div class="line">			阅读(&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;)</div><div class="line">		&lt;/span&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure></p>
-<p>卜算子详细配置可以参考： <a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">http://ibruce.info/2015/04/04/busuanzi/</a></p>
-
+        <h1 id="一、加入百度站长统计"><a href="#一、加入百度站长统计" class="headerlink" title="一、加入百度站长统计"></a>一、加入百度站长统计</h1><p>Yilia中默认已经加入了百度站长统计功能，只需要配置百度站长统计的key即可。<br>首先注册站长帐号<a href="https://tongji.baidu.com">https://tongji.baidu.com</a></p>
+        
+          <a class="article-more-a" href="/2018/04/20/hexo-10-analytics/#more">more >></a>
+        
       
 
       
@@ -446,7 +437,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <a id="more"></a>
+
       
 
       
@@ -521,7 +513,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <a id="more"></a>
+
       
 
       
@@ -596,7 +589,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <a id="more"></a>
+
       
 
       
@@ -671,7 +665,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <a id="more"></a>
+
       
 
       
