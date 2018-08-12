@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://mkh10086.github.io/2018/05/23/redis-01-install/index.html">
 <meta property="og:site_name" content="Conca">
 <meta property="og:description" content="一、安装环境系统：Ubuntu 17.10Redis版本：3.2.11 二、安装Redis方法一：傻瓜式安装通过这种方式安装不需要做过多的配置，所有都使用默认的配置，包括服务，命令，自启动等等一些东西，系统都已经配置好，直接使用即可。不过企业服务器是不会用这种方式安装软件的。">
-<meta property="og:updated_time" content="2018-05-23T12:02:28.157Z">
+<meta property="og:updated_time" content="2018-08-12T10:36:32.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Redis】01.Redis的安装与配置">
 <meta name="twitter:description" content="一、安装环境系统：Ubuntu 17.10Redis版本：3.2.11 二、安装Redis方法一：傻瓜式安装通过这种方式安装不需要做过多的配置，所有都使用默认的配置，包括服务，命令，自启动等等一些东西，系统都已经配置好，直接使用即可。不过企业服务器是不会用这种方式安装软件的。">
@@ -35,6 +35,16 @@
   
 
   
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?97a7c972a54fadf80cd1c9a68bbc4f75";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 
 </head>
 
@@ -207,9 +217,9 @@
 <li>使用这种方式安装有可能出现<code>E：无法定位软件 redis-server</code>的错误，解决方法很简单：在选择软件源的设置中勾选<code>社区维护的免费和开源软件(universe)</code>。如果还无法解决，使用命令手动添加ppa源<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo add-apt-repository  ppa:chris-lea/redis-server</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="方法二：手动编译源码包安装"><a href="#方法二：手动编译源码包安装" class="headerlink" title="方法二：手动编译源码包安装"></a>方法二：手动编译源码包安装</h4><p>下载源码包，编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ wget http://download.redis.io/releases/redis-3.2.11.tar.gz</div><div class="line">$ tar xzf redis-3.2.11.tar.gz</div><div class="line">$ cd redis-3.2.11 </div><div class="line">$ make</div></pre></td></tr></table></figure></p>
+<h4 id="方法二：手动编译源码包安装"><a href="#方法二：手动编译源码包安装" class="headerlink" title="方法二：手动编译源码包安装"></a>方法二：手动编译源码包安装</h4><p>下载源码包，编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ wget http://download.redis.io/releases/redis-3.2.11.tar.gz</div><div class="line">$ tar xzf redis-3.2.11.tar.gz</div><div class="line">$ cd redis-3.2.11</div><div class="line">$ make</div></pre></td></tr></table></figure></p>
 <p>make完后 redis-3.2.11目录下会出现编译后的redis服务程序redis-server,还有用于测试的客户端程序redis-cli,两个程序位于安装目录 src 目录下，启动redis服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ src/redis-server</div></pre></td></tr></table></figure></p>
-<p>打开另一个终端，启动客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ src/redis-cli </div><div class="line">redis&gt; set foo bar </div><div class="line">OK </div><div class="line">redis&gt; get foo </div><div class="line">&quot;bar&quot;</div></pre></td></tr></table></figure></p>
+<p>打开另一个终端，启动客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ src/redis-cli</div><div class="line">redis&gt; set foo bar</div><div class="line">OK</div><div class="line">redis&gt; get foo</div><div class="line">&quot;bar&quot;</div></pre></td></tr></table></figure></p>
 <p>安装成功</p>
 <p><strong>注意</strong></p>
 <ol>
@@ -225,7 +235,7 @@
 <li>自启动服务文件 <code>utils/redis_init_script</code></li>
 </ol>
 <h4 id="1、配置后台启动"><a href="#1、配置后台启动" class="headerlink" title="1、配置后台启动"></a>1、配置后台启动</h4><p>修改配置文件 <code>redis.conf</code>的参数<code>daemonize</code>，设为yes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">daemonize yes</div></pre></td></tr></table></figure></p>
-<p>效果如下，已经变为后台启动，不会再占用终端了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost redis-3.2.11]# src/redis-server </div><div class="line">12306:C 23 May 18:15:11.959 # Warning: no config file specified, using the default config. In order to specify a config file use src/redis-server /path/to/redis.conf</div><div class="line">12306:M 23 May 18:15:11.960 * Increased maximum number of open files to 10032 (it was originally set to 1024).</div><div class="line">12306:M 23 May 18:15:11.961 # Creating Server TCP listening socket *:6379: bind: Address already in use</div><div class="line">[root@localhost redis-3.2.11]#</div></pre></td></tr></table></figure></p>
+<p>效果如下，已经变为后台启动，不会再占用终端了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost redis-3.2.11]# src/redis-server</div><div class="line">12306:C 23 May 18:15:11.959 # Warning: no config file specified, using the default config. In order to specify a config file use src/redis-server /path/to/redis.conf</div><div class="line">12306:M 23 May 18:15:11.960 * Increased maximum number of open files to 10032 (it was originally set to 1024).</div><div class="line">12306:M 23 May 18:15:11.961 # Creating Server TCP listening socket *:6379: bind: Address already in use</div><div class="line">[root@localhost redis-3.2.11]#</div></pre></td></tr></table></figure></p>
 <p>查看redis服务是否运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost src]# ps -ef | grep redis-server</div><div class="line">root     11957  1743  0 16:16 tty1     00:00:17 src/redis-server *:6379</div><div class="line">root     12341 11966  0 18:27 pts/0    00:00:00 grep redis-server</div></pre></td></tr></table></figure></p>
 <h4 id="2、配置服务开机自启动"><a href="#2、配置服务开机自启动" class="headerlink" title="2、配置服务开机自启动"></a>2、配置服务开机自启动</h4><p>第一步：将修改好的配置文件拷贝一份到<code>/etc/redis</code>目录下，并以端口号重命名（默认端口<code>6379</code>）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost redis-3.2.11]# mkdir /etc/redis</div><div class="line">[root@localhost redis-3.2.11]# cp redis.conf /etc/redis/6379.conf</div></pre></td></tr></table></figure></p>
 <p>第二步：将启动脚本<code>utils/redis_init_script</code>复制到<code>/etc/init.d</code>，并将启动脚本重命名为<code>redisd</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost redis-3.2.11]# cp utils/redis_init_script /etc/init.d/redisd</div><div class="line">[root@localhost redis-3.2.11]# ls /etc/init.d/ | grep redisd</div><div class="line">redisd</div></pre></td></tr></table></figure></p>
@@ -237,7 +247,7 @@
 </li>
 </ul>
 <p>第四步：继续修改配置文件<code>redisd</code>，修改redis运行的程序的路径，将EXEC和CLIEXEC改为redis-server和redis-cli文件所在的路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">REDISPORT=6379</div><div class="line"></div><div class="line">EXEC=/root/soft/redis/redis-3.2.11/src/redis-server</div><div class="line">CLIEXEC=/root/soft/redis/redis-3.2.11/src/redis-cli</div><div class="line"></div><div class="line"></div><div class="line">PIDFILE=/var/run/redis_$&#123;REDISPORT&#125;.pid</div><div class="line">CONF=&quot;/etc/redis/$&#123;REDISPORT&#125;.conf&quot;</div></pre></td></tr></table></figure></p>
-<p>第五步：修改配置文件<code>/etc/redis/6379.conf</code>，把pid的默认值<code>redis.pid</code>改为<code>redis_6379.pid</code>，因为服务启动脚本中启动的是这个脚本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# vim /etc/redis/6379.conf </div><div class="line">pidfile /var/run/redis_6379.pid</div></pre></td></tr></table></figure></p>
+<p>第五步：修改配置文件<code>/etc/redis/6379.conf</code>，把pid的默认值<code>redis.pid</code>改为<code>redis_6379.pid</code>，因为服务启动脚本中启动的是这个脚本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# vim /etc/redis/6379.conf</div><div class="line">pidfile /var/run/redis_6379.pid</div></pre></td></tr></table></figure></p>
 <p>到此自启动服务配置完成。</p>
 <p>下面验证是否配置成功<br>首先查看是否有redis服务在后台，有就先关掉，避免影响。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# ps -ef | grep redis</div><div class="line">root     11957  1743  0 16:16 tty1     00:00:24 src/redis-server *:6379</div><div class="line">root     12524 11966  0 19:19 pts/0    00:00:00 grep redis</div><div class="line">[root@localhost etc]# kill 11957</div></pre></td></tr></table></figure></p>
 <p>开启redisd 服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@localhost etc]# service redisd start</div><div class="line">Starting Redis server...</div><div class="line">[root@localhost etc]# ps -ef | grep redis-server</div><div class="line">root     12662     1  0 19:29 ?        00:00:00 /root/soft/redis/redis-3.2.11/src/redis-server 127.0.0.1:6379      </div><div class="line">root     12666 11966  0 19:29 pts/0    00:00:00 grep redis-server</div><div class="line">[root@localhost etc]# service redisd stop</div><div class="line">Stopping ...</div><div class="line">Redis stopped</div></pre></td></tr></table></figure></p>
@@ -366,6 +376,11 @@
     </a>
   
   
+    <a href="/2018/07/19/blog-01-all/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Blog-01】基于SpringBoot+MongoDB开发个人博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
 </nav>
 
 
@@ -422,9 +437,17 @@ gitment.render('gitment-ctn')
     <div id="footer-info">
     	<div class="footer-left">
     		&copy; 2018 Conca
-        <span id="busuanzi_container_site_uv">
-          本站访客数<span id="busuanzi_value_site_uv"></span>人次
-        </span>
+
+        <!--卜算子统计start-->
+      	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      	<span id="busuanzi_container_site_pv"> 
+			本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+      	<span id="busuanzi_container_site_uv">
+  			总访客数<span id="busuanzi_value_site_uv"></span>人次
+  		</span>
+      	<!--统计end-->
+
       </div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -432,7 +455,7 @@ gitment.render('gitment-ctn')
     </div>
   </div>
 </footer>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
     </div>
     <script>
@@ -540,6 +563,22 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">BBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">chrome插件</a>
               </li>
              
@@ -548,11 +587,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">BBS</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascirpt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,6 +600,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mysql配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
             
             <div class="clearfix"></div>
@@ -631,7 +674,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">想成为大牛的菜鸟</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">努力吧，少年</div>
   	  	
     	</section>
     

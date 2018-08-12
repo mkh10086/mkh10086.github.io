@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://mkh10086.github.io">
   <title>【MySQL】解决中文乱码 | Conca</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MySQL中文乱码是一个常见的问题，解决方法也是非常简单的。由于MySQL默认编码是latin1，所以不支持中文。中文编码有好几种，例如gbk，gb2312等等，但是我建议使用utf8编码，并且全局都使用utf8编码。 不过由于现在许多应用都开始Emoji表情，所以我这里使用utf8mb4编码。（注意：MySQL需要升级到5.5.3或更新的版本） 一、关于版本的区别引用一段说明：  官网说：从5.">
+  <meta name="description" content="MySQL中文乱码是一个常见的问题，解决方法也是非常简单的。由于MySQL默认编码是latin1，所以不支持中文。中文编码有好几种，例如gbk，gb2312等等，但是我建议使用utf8编码，并且全局都使用utf8编码。 不过由于现在许多应用都开始Emoji表情，所以我这里使用utf8mb4编码。（注意：MySQL需要升级到5.5.3或更新的版本）">
 <meta name="keywords" content="mysql,mysql配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【MySQL】解决中文乱码">
 <meta property="og:url" content="http://mkh10086.github.io/2018/05/03/mysql-01-setting/index.html">
 <meta property="og:site_name" content="Conca">
-<meta property="og:description" content="MySQL中文乱码是一个常见的问题，解决方法也是非常简单的。由于MySQL默认编码是latin1，所以不支持中文。中文编码有好几种，例如gbk，gb2312等等，但是我建议使用utf8编码，并且全局都使用utf8编码。 不过由于现在许多应用都开始Emoji表情，所以我这里使用utf8mb4编码。（注意：MySQL需要升级到5.5.3或更新的版本） 一、关于版本的区别引用一段说明：  官网说：从5.">
-<meta property="og:updated_time" content="2018-05-03T14:11:37.307Z">
+<meta property="og:description" content="MySQL中文乱码是一个常见的问题，解决方法也是非常简单的。由于MySQL默认编码是latin1，所以不支持中文。中文编码有好几种，例如gbk，gb2312等等，但是我建议使用utf8编码，并且全局都使用utf8编码。 不过由于现在许多应用都开始Emoji表情，所以我这里使用utf8mb4编码。（注意：MySQL需要升级到5.5.3或更新的版本）">
+<meta property="og:updated_time" content="2018-08-12T13:13:36.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【MySQL】解决中文乱码">
-<meta name="twitter:description" content="MySQL中文乱码是一个常见的问题，解决方法也是非常简单的。由于MySQL默认编码是latin1，所以不支持中文。中文编码有好几种，例如gbk，gb2312等等，但是我建议使用utf8编码，并且全局都使用utf8编码。 不过由于现在许多应用都开始Emoji表情，所以我这里使用utf8mb4编码。（注意：MySQL需要升级到5.5.3或更新的版本） 一、关于版本的区别引用一段说明：  官网说：从5.">
+<meta name="twitter:description" content="MySQL中文乱码是一个常见的问题，解决方法也是非常简单的。由于MySQL默认编码是latin1，所以不支持中文。中文编码有好几种，例如gbk，gb2312等等，但是我建议使用utf8编码，并且全局都使用utf8编码。 不过由于现在许多应用都开始Emoji表情，所以我这里使用utf8mb4编码。（注意：MySQL需要升级到5.5.3或更新的版本）">
   
     <link rel="alternative" href="/atom.xml" title="Conca" type="application/atom+xml">
   
@@ -35,6 +35,16 @@
   
 
   
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?97a7c972a54fadf80cd1c9a68bbc4f75";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 
 </head>
 
@@ -196,26 +206,24 @@
       
         <p>MySQL中文乱码是一个常见的问题，解决方法也是非常简单的。由于MySQL默认编码是<code>latin1</code>，所以不支持中文。中文编码有好几种，例如<code>gbk</code>，<code>gb2312</code>等等，但是我建议使用<code>utf8</code>编码，并且全局都使用<code>utf8</code>编码。</p>
 <p>不过由于现在许多应用都开始Emoji表情，所以我这里使用<code>utf8mb4</code>编码。（<strong>注意：MySQL需要升级到5.5.3或更新的版本</strong>）</p>
-<h1 id="一、关于版本的区别"><a href="#一、关于版本的区别" class="headerlink" title="一、关于版本的区别"></a>一、关于版本的区别</h1><p>引用一段说明：</p>
-<blockquote>
-<p>官网说：从5.7.18开始不在二进制包中提供my-default.cnf文件。参考：<a href="https://dev.mysql.com/doc/refman/5.7/en/binary-installation.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.7/en/binary-installation.html</a></p>
-<p>经过测试，在5.7.18版本中，使用tar.gz安装时，也就是压缩包解压出来安装这种，已经不再需要my.cnf文件也能正常运行。</p>
-<p>my.cnf文件就是把在命令行上启动MySQL时后面的参数用cnf文件配置好，那么下载启动时就不再需要在命令上加如参数。</p>
-<p>这个my.cnf文件可以是自定义位置，也可以使用如下默认的位置，只要放在默认位置，MySQL自动识别（通过deb或者APT源安装的，初始位置在下方列表）：<br>在Unix和类Unix系统上读取选项文件<br>文件名                    目的<br>/etc/my.cnf              全局选项<br>/etc/mysql/my.cnf        全局选项<br>SYSCONFDIR/my.cnf        全局选项<br>$MYSQL_HOME/my.cnf       服务器特定选项（仅限服务器）<br>defaults-extra-file      指定的文件 –defaults-extra-file（如果有的话）<br>~/.my.cnf                用户特定的选项<br>~/.mylogin.cnf           用户特定的登录路径选项（仅限客户端）    </p>
-<p>在上表中，~表示当前用户的主目录（的值 $HOME）。<br>首先它会找/etc/my.cnf 这个文件， 如果这个文件不存在，那么它接下来去找/etc/mysql/my.cnf这个文件，依此类推</p>
-</blockquote>
-<p>所有如果你使用的MySQL版本大于或等于5.7.18，就要从上面的路径中查找到my.cnf文件，然后进行配置。<br>如果是少于5.7.18，直接打开/etc/my.cnf文件进行配置。<br>对于Windows系统，原理差不多，大家自行谷歌，因为MySQL很少会装在Windows服务器。</p>
 <a id="more"></a>
+<h1 id="一、关于版本的区别"><a href="#一、关于版本的区别" class="headerlink" title="一、关于版本的区别"></a>一、关于版本的区别</h1><p>引用一段说明：<br><blockquote><p>官网说：从5.7.18开始不在二进制包中提供<code>my-default.cnf</code>文件。参考：<a href="https://dev.mysql.com/doc/refman/5.7/en/binary-installation.html" target="_blank" rel="external">https://dev.mysql.com/doc/refman/5.7/en/binary-installation.html</a></p>
+<p>经过测试，在5.7.18版本中，使用tar.gz安装时，也就是压缩包解压出来安装这种，已经不再需要<code>my.cnf</code>文件也能正常运行。</p>
+<p><code>my.cnf</code>文件就是把在命令行上启动MySQL时后面的参数用cnf文件配置好，那么下载启动时就不再需要在命令上加如参数。</p>
+<p>这个<code>my.cnf</code>文件可以是自定义位置，也可以使用如下默认的位置，只要放在默认位置，MySQL自动识别（通过deb或者APT源安装的，初始位置在下方列表）：<br>在Unix和类Unix系统上读取选项文件<br>文件名                 目的<br><code>/etc/my.cnf</code>         : 全局选项<br><code>/etc/mysql/my.cnf</code>   : 全局选项<br><code>SYSCONFDIR/my.cnf</code>   : 全局选项<br><code>$MYSQL_HOME/my.cnf</code>  : 服务器特定选项（仅限服务器）<br><code>defaults-extra-file</code> : 指定的文件 –defaults-extra-file（如果有的话）<br><code>~/.my.cnf</code>           : 用户特定的选项<br><code>~/.mylogin.cnf</code>     : 用户特定的登录路径选项（仅限客户端）</p>
+<p>在上表中，~表示当前用户的主目录的值（<code>$HOME</code>）。<br>首先它会找<code>/etc/my.cnf</code> 这个文件， 如果这个文件不存在，那么它接下来去找<code>/etc/mysql/my.cnf</code>这个文件，依此类推</p>
+</blockquote></p>
+<p>所有如果你使用的MySQL版本大于或等于5.7.18，就要从上面的路径中查找到my.cnf文件，然后进行配置。<br>如果是少于5.7.18，直接打开/etc/my.cnf文件进行配置。<br>对于Windows系统，原理差不多，大家自行谷歌，因为MySQL很少会装在Windows服务器（用windows服务器的基本都是用巨硬全家桶）。</p>
 <h1 id="二、解决中文乱码问题"><a href="#二、解决中文乱码问题" class="headerlink" title="二、解决中文乱码问题"></a>二、解决中文乱码问题</h1><p>=================================================</p>
 <p>MySQL版本：5.7.22</p>
-<p>服务器：Ubuntu 17.10 amd64</p>
+<p>操作系统：Ubuntu 17.10 amd64</p>
 <p>=================================================</p>
 <h3 id="1、查看MySQL数据库编码"><a href="#1、查看MySQL数据库编码" class="headerlink" title="1、查看MySQL数据库编码"></a>1、查看MySQL数据库编码</h3><p>方法一：通过 <code>status</code> 命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">mysql&gt; status</div><div class="line">--------------</div><div class="line">mysql  Ver 14.14 Distrib 5.7.22, for Linux (x86_64) using  EditLine wrapper</div><div class="line"></div><div class="line">Connection id:		3</div><div class="line">Current database:</div><div class="line">Current user:		root@localhost</div><div class="line">SSL:			Not in use</div><div class="line">Current pager:		stdout</div><div class="line">Using outfile:		&apos;&apos;</div><div class="line">Using delimiter:	;</div><div class="line">Server version:		5.7.22-0ubuntu0.17.10.1 (Ubuntu)</div><div class="line">Protocol version:	10</div><div class="line">Connection:		Localhost via UNIX socket</div><div class="line">Server characterset:	utf8mb4</div><div class="line">Db     characterset:	utf8mb4</div><div class="line">Client characterset:	utf8mb4</div><div class="line">Conn.  characterset:	utf8mb4</div><div class="line">UNIX socket:		/var/run/mysqld/mysqld.sock</div><div class="line">Uptime:			29 min 55 sec</div><div class="line"></div><div class="line">Threads: 1  Questions: 5  Slow queries: 0  Opens: 107  Flush tables: 1  Open tables: 26  Queries per second avg: 0.002</div><div class="line">--------------</div></pre></td></tr></table></figure></p>
 <p>看下面这四部分，默认不是utf8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Server characterset:    utf8mb4</div><div class="line">Db     characterset:    utf8mb4</div><div class="line">Client characterset:    utf8mb4</div><div class="line">Conn.  characterset:    utf8mb4</div></pre></td></tr></table></figure></p>
 <p>方法二：通过 <code>show variables like &#39;%char%&#39;;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show variables like &apos;%char%&apos;;</div><div class="line">+--------------------------+----------------------------+</div><div class="line">| Variable_name            | Value                      |</div><div class="line">+--------------------------+----------------------------+</div><div class="line">| character_set_client     | utf8mb4                    |</div><div class="line">| character_set_connection | utf8mb4                    |</div><div class="line">| character_set_database   | utf8mb4                    |</div><div class="line">| character_set_filesystem | binary                     |</div><div class="line">| character_set_results    | utf8mb4                    |</div><div class="line">| character_set_server     | utf8mb4                    |</div><div class="line">| character_set_system     | utf8                       |</div><div class="line">| character_sets_dir       | /usr/share/mysql/charsets/ |</div><div class="line">+--------------------------+----------------------------+</div><div class="line">8 rows in set (0.54 sec)</div></pre></td></tr></table></figure></p>
 <h3 id="2、设置MySQL数据库编码"><a href="#2、设置MySQL数据库编码" class="headerlink" title="2、设置MySQL数据库编码"></a>2、设置MySQL数据库编码</h3><p>打开 <code>/etc/mysql/my.cnf</code> 文件，修改为如下设置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[client]  </div><div class="line">default-character-set=utf8mb4</div><div class="line"></div><div class="line">[mysql]  </div><div class="line">default-character-set=utf8mb4</div><div class="line"></div><div class="line">[mysqld]  </div><div class="line">collation-server = utf8mb4_general_ci</div><div class="line">character-set-server = utf8mb4</div></pre></td></tr></table></figure>
-<p>重启MySQL服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mysql restart</div></pre></td></tr></table></figure></p>
+<p>重启MySQL服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mysql restart</div></pre></td></tr></table></figure></p>
 <p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/mysql restart</div></pre></td></tr></table></figure></p>
 <p>通过<code>status</code>或者<code>show variables like &#39;%char%&#39;;</code>查看编码，已经全部设置为utf8mb4，搞定了。</p>
 <p><strong>验证一下</strong>：</p>
@@ -418,9 +426,17 @@ gitment.render('gitment-ctn')
     <div id="footer-info">
     	<div class="footer-left">
     		&copy; 2018 Conca
-        <span id="busuanzi_container_site_uv">
-          本站访客数<span id="busuanzi_value_site_uv"></span>人次
-        </span>
+
+        <!--卜算子统计start-->
+      	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      	<span id="busuanzi_container_site_pv"> 
+			本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+      	<span id="busuanzi_container_site_uv">
+  			总访客数<span id="busuanzi_value_site_uv"></span>人次
+  		</span>
+      	<!--统计end-->
+
       </div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -428,7 +444,7 @@ gitment.render('gitment-ctn')
     </div>
   </div>
 </footer>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
     </div>
     <script>
@@ -536,6 +552,22 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">BBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">chrome插件</a>
               </li>
              
@@ -544,11 +576,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">BBS</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascirpt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,6 +589,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mysql配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
             
             <div class="clearfix"></div>
@@ -627,7 +663,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">想成为大牛的菜鸟</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">努力吧，少年</div>
   	  	
     	</section>
     

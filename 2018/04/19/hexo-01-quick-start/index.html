@@ -15,14 +15,14 @@
 <meta property="og:url" content="http://mkh10086.github.io/2018/04/19/hexo-01-quick-start/index.html">
 <meta property="og:site_name" content="Conca">
 <meta property="og:description" content="一、准备工作安装Git：按照你的操作系统选择操作 Windows：下载并安装 git. Mac：下载 安装程序 安装或使用 Homebrew, MacPorts ：1$ brew install git">
-<meta property="og:image" content="http://mkh10086.github.io/img/hexo-01-01.png">
-<meta property="og:image" content="http://mkh10086.github.io/img/hexo-01-02.png">
-<meta property="og:image" content="http://mkh10086.github.io/img/hexo-01-03.png">
-<meta property="og:updated_time" content="2018-04-18T21:55:13.057Z">
+<meta property="og:image" content="http://mkh10086.github.io/2018/04/19/hexo-01-quick-start/hexo-01-01.png">
+<meta property="og:image" content="http://mkh10086.github.io/2018/04/19/hexo-01-quick-start/hexo-01-02.png">
+<meta property="og:image" content="http://mkh10086.github.io/2018/04/19/hexo-01-quick-start/hexo-01-03.png">
+<meta property="og:updated_time" content="2018-08-12T11:06:39.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Hexo-01】使用Hexo快速建站">
 <meta name="twitter:description" content="一、准备工作安装Git：按照你的操作系统选择操作 Windows：下载并安装 git. Mac：下载 安装程序 安装或使用 Homebrew, MacPorts ：1$ brew install git">
-<meta name="twitter:image" content="http://mkh10086.github.io/img/hexo-01-01.png">
+<meta name="twitter:image" content="http://mkh10086.github.io/2018/04/19/hexo-01-quick-start/hexo-01-01.png">
   
     <link rel="alternative" href="/atom.xml" title="Conca" type="application/atom+xml">
   
@@ -39,6 +39,16 @@
   
 
   
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?97a7c972a54fadf80cd1c9a68bbc4f75";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 
 </head>
 
@@ -214,13 +224,13 @@
 <h1 id="二、快速建站"><a href="#二、快速建站" class="headerlink" title="二、快速建站"></a>二、快速建站</h1><p>由于我使用的是Ubuntu系统，所以我下面的内容都是基于Linux系统来操作，Windows系统的操作大同小异。</p>
 <p>1.打开终端（Ctrl+T），执行初始化命令，其中myblog为你的博客文件夹名称（按需自定义）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init myblog</div><div class="line">$ cd myblog</div><div class="line">$ npm install</div></pre></td></tr></table></figure></p>
 <p>可以看到生成了下面一堆东西(后面会介绍这些文件夹是干什么的，这里先把博客跑起来)</p>
-<p><img src="/img/hexo-01-01.png" alt="hexo init"></p>
+<img src="/2018/04/19/hexo-01-quick-start/hexo-01-01.png" alt="hexo init" title="hexo init">
 <p>2.执行命令，让博客跑起来</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>执行结果如图，证明服务器端已经跑起来了</p>
-<p><img src="/img/hexo-01-02.png" alt="hexo server"></p>
+<img src="/2018/04/19/hexo-01-quick-start/hexo-01-02.png" alt="hexo server" title="hexo server">
 <p>3.打开浏览器，输入 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
-<p><img src="/img/hexo-01-03.png" alt="hexo"></p>
+<img src="/2018/04/19/hexo-01-quick-start/hexo-01-03.png" alt="hexo blog" title="hexo blog">
 <p>大功告成，本地版的Hexo博客已经搭建成功</p>
 <p>下面介绍一下上面初始化生成的文件夹的用途<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">myblog</div><div class="line">├── _config.yml     ##这是网站的配置文件</div><div class="line">├── package.json    ##博客使用的应用程序的信息，node.js的东西</div><div class="line">├── scaffolds       ##模板文件夹，保存写作模板的</div><div class="line">├── source          ##资源文件夹是存放用户资源的地方。主要就是存放文章，文章附带图片等等</div><div class="line">|   ├── _drafts     ##存储文章草稿</div><div class="line">|   └── _posts      ##存储发布的文章</div><div class="line">└── themes          ##网站主题文件夹，自定义主题放在这里</div></pre></td></tr></table></figure></p>
 <h1 id="资料："><a href="#资料：" class="headerlink" title="资料："></a>资料：</h1><p>Hexo 文档：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">https://hexo.io/zh-cn/docs/</a></p>
@@ -404,9 +414,17 @@ gitment.render('gitment-ctn')
     <div id="footer-info">
     	<div class="footer-left">
     		&copy; 2018 Conca
-        <span id="busuanzi_container_site_uv">
-          本站访客数<span id="busuanzi_value_site_uv"></span>人次
-        </span>
+
+        <!--卜算子统计start-->
+      	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      	<span id="busuanzi_container_site_pv"> 
+			本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+      	<span id="busuanzi_container_site_uv">
+  			总访客数<span id="busuanzi_value_site_uv"></span>人次
+  		</span>
+      	<!--统计end-->
+
       </div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -414,7 +432,7 @@ gitment.render('gitment-ctn')
     </div>
   </div>
 </footer>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
     </div>
     <script>
@@ -522,6 +540,22 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">BBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">chrome插件</a>
               </li>
              
@@ -530,11 +564,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">BBS</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascirpt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,6 +577,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mysql配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
             
             <div class="clearfix"></div>
@@ -613,7 +651,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">想成为大牛的菜鸟</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">努力吧，少年</div>
   	  	
     	</section>
     
