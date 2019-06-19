@@ -17,7 +17,7 @@
 <meta property="og:description" content="Hexo可以自由更换主题，实现个性化设置。Hexo官网有一个类似主题商店的页面，里面有200多个主题供你选择。主题商店地址：https://hexo.io/zh-cn/docs/themes.html。在github中还有许多民间大神创作的主题，不想大众化的朋友可以去挖掘一下。如果你想完全自定义，那么就自己去设计开发吧。 在众多的主题中，我比较喜欢的是 Yilia 和 Next，比较简洁，界面很漂">
 <meta property="og:image" content="http://mkh10086.github.io/2018/04/19/hexo-05-theme-yilia/hexo-05-01.gif">
 <meta property="og:image" content="http://mkh10086.github.io/2018/04/19/hexo-05-theme-yilia/hexo-05-02.png">
-<meta property="og:updated_time" content="2018-08-12T10:08:30.568Z">
+<meta property="og:updated_time" content="2019-06-19T09:33:18.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Hexo-05】使用主题Yilia">
 <meta name="twitter:description" content="Hexo可以自由更换主题，实现个性化设置。Hexo官网有一个类似主题商店的页面，里面有200多个主题供你选择。主题商店地址：https://hexo.io/zh-cn/docs/themes.html。在github中还有许多民间大神创作的主题，不想大众化的朋友可以去挖掘一下。如果你想完全自定义，那么就自己去设计开发吧。 在众多的主题中，我比较喜欢的是 Yilia 和 Next，比较简洁，界面很漂">
@@ -59,6 +59,10 @@ var _hmt = _hmt || [];
 <div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
+		<!-- 添加网易云播放器 -->
+		<div style="transition: left 0.5s ease 0.3s; position: fixed; top: 5px; left: 0px; z-index: 9999;">
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=86 src="//music.163.com/outchain/player?type=2&id=17657672&auto=0&height=66"></iframe>
+		</div>
 		<a href="/" class="profilepic">
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
@@ -108,7 +112,7 @@ var _hmt = _hmt || [];
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
-			</div>
+			</div>			
 		</nav>
 	</header>		
 </div>
@@ -216,23 +220,15 @@ var _hmt = _hmt || [];
 <p>可以直接下载该项目的zip包，然后解压到目录 myblog/themes/ 中。还有一种方式就是通过git的命令来安装主题，推荐这种方式，如果后期该主题有更新，可以直接通过命令即可完成更新，方便快捷。</p>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> myblog</span></div><div class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span></div></pre></td></tr></table></figure>
 <p>下载完毕，现在主题目录中多了一个yilia的文件夹</p>
-<h1 id="二、修改Hexo配置文件"><a href="#二、修改Hexo配置文件" class="headerlink" title="二、修改Hexo配置文件"></a>二、修改Hexo配置文件</h1><p>修改 <code>myblog/\_config.yml</code>，将theme修改为yilia<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Extensions</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: yilia</div></pre></td></tr></table></figure></p>
+<h1 id="二、修改Hexo配置文件"><a href="#二、修改Hexo配置文件" class="headerlink" title="二、修改Hexo配置文件"></a>二、修改Hexo配置文件</h1><p>修改 <code>myblog/_config.yml</code>，将theme修改为yilia<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Extensions</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: yilia</div></pre></td></tr></table></figure></p>
 <p>运行 hexo 服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
 <p>打开浏览器 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>，效果如图</p>
 <img src="/2018/04/19/hexo-05-theme-yilia/hexo-05-02.png" alt="Yilia" title="Yilia">
-<p>点击 <em>所有文章</em> 会发现这里没有配置好，按照提示操作：</p>
-<ol>
-<li>请确保node版本大于6.2</li>
-<li><p>在博客根目录（注意不是yilia根目录）执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i hexo-generator-json-content --save</div></pre></td></tr></table></figure>
-</li>
-<li><p>在根目录_config.yml里添加配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">jsonContent:</div><div class="line">    meta: false</div><div class="line">    pages: false</div><div class="line">    posts:</div><div class="line">      title: true</div><div class="line">      date: true</div><div class="line">      path: true</div><div class="line">      text: false</div><div class="line">      raw: false</div><div class="line">      content: false</div><div class="line">      slug: false</div><div class="line">      updated: false</div><div class="line">      comments: false</div><div class="line">      link: false</div><div class="line">      permalink: false</div><div class="line">      excerpt: false</div><div class="line">      categories: false</div><div class="line">      tags: true</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>点击 <em>所有文章</em> 会发现这里没有配置好，按照提示操作：<br>1、 请确保node版本大于6.2<br>2、 在博客根目录（注意不是yilia根目录）执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm i hexo-generator-json-content --save</div></pre></td></tr></table></figure></p>
+<p>3、 在根目录<code>_config.yml</code>里添加配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">jsonContent:</div><div class="line">    meta: false</div><div class="line">    pages: false</div><div class="line">    posts:</div><div class="line">      title: true</div><div class="line">      date: true</div><div class="line">      path: true</div><div class="line">      text: false</div><div class="line">      raw: false</div><div class="line">      content: false</div><div class="line">      slug: false</div><div class="line">      updated: false</div><div class="line">      comments: false</div><div class="line">      link: false</div><div class="line">      permalink: false</div><div class="line">      excerpt: false</div><div class="line">      categories: false</div><div class="line">      tags: true</div></pre></td></tr></table></figure></p>
 <p>问题解决。</p>
 <h1 id="三、更新主题"><a href="#三、更新主题" class="headerlink" title="三、更新主题"></a>三、更新主题</h1><p>如果主题有更新，执行下面的命令完成更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd myblog/themes/yilia</div><div class="line">$ git pull</div></pre></td></tr></table></figure></p>
-<h1 id="四、配置Yilia"><a href="#四、配置Yilia" class="headerlink" title="四、配置Yilia"></a>四、配置Yilia</h1><p>Yilia的配置文件为 <code>themes/yilia/\_config.yml</code></p>
+<h1 id="四、配置Yilia"><a href="#四、配置Yilia" class="headerlink" title="四、配置Yilia"></a>四、配置Yilia</h1><p>Yilia的配置文件为 <code>themes/yilia/_config.yml</code></p>
 <h3 id="配置主页菜单"><a href="#配置主页菜单" class="headerlink" title="配置主页菜单"></a>配置主页菜单</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">  主页: /</div><div class="line">  随笔: /tags/随笔/</div><div class="line">  归档: /archives/</div><div class="line">  分类: /categories/</div></pre></td></tr></table></figure>
 <h3 id="配置社交信息"><a href="#配置社交信息" class="headerlink" title="配置社交信息"></a>配置社交信息</h3><p>社交信息，按自己需要配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># SubNav</div><div class="line">subnav:</div><div class="line">  github: &quot;#&quot;</div><div class="line">  weibo: &quot;#&quot;</div><div class="line">  rss: &quot;#&quot;</div><div class="line">  zhihu: &quot;#&quot;</div><div class="line">  #qq: &quot;#&quot;</div><div class="line">  #weixin: &quot;#&quot;</div><div class="line">  #jianshu: &quot;#&quot;</div><div class="line">  #douban: &quot;#&quot;</div><div class="line">  #segmentfault: &quot;#&quot;</div><div class="line">  #bilibili: &quot;#&quot;</div><div class="line">  #acfun: &quot;#&quot;</div><div class="line">  #mail: &quot;mailto:litten225@qq.com&quot;</div><div class="line">  #facebook: &quot;#&quot;</div><div class="line">  #google: &quot;#&quot;</div><div class="line">  #twitter: &quot;#&quot;</div><div class="line">  #linkedin: &quot;#&quot;</div></pre></td></tr></table></figure></p>
 <h3 id="配置网站的根目录"><a href="#配置网站的根目录" class="headerlink" title="配置网站的根目录"></a>配置网站的根目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 是否需要修改 root 路径</div><div class="line"># 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，</div><div class="line"># 请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。</div><div class="line">root:</div></pre></td></tr></table></figure>
@@ -432,7 +428,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Conca
+    		&copy; 2019 Conca
 
         <!--卜算子统计start-->
       	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>

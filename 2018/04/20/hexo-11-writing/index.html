@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Conca">
 <meta property="og:description" content="先来复习一下前面的内容，安装完成后的目录结构如下12345678myblog├── _config.yml     ##这是网站的配置文件├── package.json    ##博客使用的应用程序的信息，node.js的东西├── scaffolds       ##模板文件夹，保存写作模板的├── source          ##资源文件夹是存放用户资源的地方。主要就是存放文章，文章附带">
 <meta property="og:image" content="http://mkh10086.github.io/2018/04/20/hexo-11-writing/1.png">
-<meta property="og:updated_time" content="2018-08-12T15:26:11.255Z">
+<meta property="og:updated_time" content="2019-06-19T10:17:33.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Hexo-11】Hexo写作">
 <meta name="twitter:description" content="先来复习一下前面的内容，安装完成后的目录结构如下12345678myblog├── _config.yml     ##这是网站的配置文件├── package.json    ##博客使用的应用程序的信息，node.js的东西├── scaffolds       ##模板文件夹，保存写作模板的├── source          ##资源文件夹是存放用户资源的地方。主要就是存放文章，文章附带">
@@ -58,6 +58,10 @@ var _hmt = _hmt || [];
 <div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
+		<!-- 添加网易云播放器 -->
+		<div style="transition: left 0.5s ease 0.3s; position: fixed; top: 5px; left: 0px; z-index: 9999;">
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=86 src="//music.163.com/outchain/player?type=2&id=17657672&auto=0&height=66"></iframe>
+		</div>
 		<a href="/" class="profilepic">
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
@@ -107,7 +111,7 @@ var _hmt = _hmt || [];
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
-			</div>
+			</div>			
 		</nav>
 	</header>		
 </div>
@@ -230,7 +234,11 @@ var _hmt = _hmt || [];
 <h6 id="在文章中引入图片"><a href="#在文章中引入图片" class="headerlink" title="在文章中引入图片"></a>在文章中引入图片</h6><p>如果使用markdown语法引入图片，会出现一个问题，在博客主页中无法显示图片。<br>解决方法：使用标签插件（Hexo 3自带，Hexo 2需要自行安装），语法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% asset_img &lt;图片路径&gt; &lt;图片提示信息，可选&gt; %&#125;</div></pre></td></tr></table></figure></p>
 <p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% asset_img example.jpg This is an example image %&#125;</div></pre></td></tr></table></figure></p>
 <p>这里的图片路径，使用的是相对路径。</p>
-<h1 id="三、按模版写作"><a href="#三、按模版写作" class="headerlink" title="三、按模版写作"></a>三、按模版写作</h1><p>模版文件保存在<code>scaffolds</code>，默认有3个模板文件，分别是草稿模板，默认的文章模板，还有一个page布局的模板文件。<br>我们自定义一个模板<code>my.md</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: &#123;&#123; title &#125;&#125;</div><div class="line">date: &#123;&#123; date &#125;&#125;</div><div class="line">tags:</div><div class="line">---</div><div class="line"></div><div class="line"># 这是我的自定义模板</div><div class="line"></div><div class="line">### 表格</div><div class="line">| Item      |    Value | Qty  |</div><div class="line">| :-------- | --------:| :--: |</div><div class="line">| Computer  | 1600 USD |  5   |</div><div class="line">| Phone     |   12 USD |  12  |</div><div class="line">| Pipe      |    1 USD | 234  |</div></pre></td></tr></table></figure></p>
+<h1 id="三、文章中引入链接"><a href="#三、文章中引入链接" class="headerlink" title="三、文章中引入链接"></a>三、文章中引入链接</h1><h6 id="引入外部链接"><a href="#引入外部链接" class="headerlink" title="引入外部链接"></a>引入外部链接</h6><p>当文章中需要引入第三方网站的链接时，可以使用markdown的语法引入，<br>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[title](link)</div></pre></td></tr></table></figure></p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[谷歌](https://www.google.com.hk)</div></pre></td></tr></table></figure></p>
+<h6 id="引入本地文章链接"><a href="#引入本地文章链接" class="headerlink" title="引入本地文章链接"></a>引入本地文章链接</h6><p>当文章中引入了我们自己写的文章的链接时，我们不能使用上面的方法，因为hexo的文章链接中包含有日期信息，例如：<code>／2018/10/10/helloworld</code>，如果文章的日期发生了改变，那么我们的链接就gg了，所以hexo提供了另外一种方式来引入本地链接。<br>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% post_link 文章文件名（不要后缀） 文章标题（可选） %&#125;</div></pre></td></tr></table></figure></p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;% post_link Hello-World %&#125;</div><div class="line">&#123;% post_link Hello-World 你好世界 %&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="四、按模版写作"><a href="#四、按模版写作" class="headerlink" title="四、按模版写作"></a>四、按模版写作</h1><p>模版文件保存在<code>scaffolds</code>，默认有3个模板文件，分别是草稿模板，默认的文章模板，还有一个page布局的模板文件。<br>我们自定义一个模板<code>my.md</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: &#123;&#123; title &#125;&#125;</div><div class="line">date: &#123;&#123; date &#125;&#125;</div><div class="line">tags:</div><div class="line">---</div><div class="line"></div><div class="line"># 这是我的自定义模板</div><div class="line"></div><div class="line">### 表格</div><div class="line">| Item      |    Value | Qty  |</div><div class="line">| :-------- | --------:| :--: |</div><div class="line">| Computer  | 1600 USD |  5   |</div><div class="line">| Phone     |   12 USD |  12  |</div><div class="line">| Pipe      |    1 USD | 234  |</div></pre></td></tr></table></figure></p>
 <p>按照模板新建一篇文章<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new my test03</div></pre></td></tr></table></figure></p>
 <p>打开文章文件，效果如图：</p>
 <img src="/2018/04/20/hexo-11-writing/1.png" alt="1" title="1">
@@ -413,7 +421,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Conca
+    		&copy; 2019 Conca
 
         <!--卜算子统计start-->
       	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
