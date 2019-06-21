@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Conca">
 <meta property="og:description" content="先来复习一下前面的内容，安装完成后的目录结构如下12345678myblog├── _config.yml     ##这是网站的配置文件├── package.json    ##博客使用的应用程序的信息，node.js的东西├── scaffolds       ##模板文件夹，保存写作模板的├── source          ##资源文件夹是存放用户资源的地方。主要就是存放文章，文章附带">
 <meta property="og:image" content="http://mkh10086.github.io/2018/04/20/hexo-11-writing/1.png">
-<meta property="og:updated_time" content="2019-06-19T17:06:39.300Z">
+<meta property="og:updated_time" content="2019-06-19T18:09:21.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Hexo-11】Hexo写作">
 <meta name="twitter:description" content="先来复习一下前面的内容，安装完成后的目录结构如下12345678myblog├── _config.yml     ##这是网站的配置文件├── package.json    ##博客使用的应用程序的信息，node.js的东西├── scaffolds       ##模板文件夹，保存写作模板的├── source          ##资源文件夹是存放用户资源的地方。主要就是存放文章，文章附带">
@@ -213,9 +213,9 @@ var _hmt = _hmt || [];
         <p>先来复习一下前面的内容，安装完成后的目录结构如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">myblog</div><div class="line">├── _config.yml     ##这是网站的配置文件</div><div class="line">├── package.json    ##博客使用的应用程序的信息，node.js的东西</div><div class="line">├── scaffolds       ##模板文件夹，保存写作模板的</div><div class="line">├── source          ##资源文件夹是存放用户资源的地方。主要就是存放文章，文章附带图片等等</div><div class="line">|   ├── _drafts     ##存储文章草稿</div><div class="line">|   └── _posts      ##存储发布的文章</div><div class="line">└── themes          ##网站主题文件夹，自定义主题放在这里</div></pre></td></tr></table></figure></p>
 <p>这一节会用到模板文件夹<code>scaffolds</code>，草稿文件夹<code>_drafts</code>和文章文件夹<code>_posts</code>。</p>
 <a id="more"></a>
-<h1 id="一、写作"><a href="#一、写作" class="headerlink" title="一、写作"></a>一、写作</h1><h3 id="1-写文章"><a href="#1-写文章" class="headerlink" title="1.写文章"></a>1.写文章</h3><p>进入hexo的博客目录，新建一篇文章<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo new post &lt;title&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="一、写作"><a href="#一、写作" class="headerlink" title="一、写作"></a>一、写作</h1><h3 id="1-写文章"><a href="#1-写文章" class="headerlink" title="1.写文章"></a>1.写文章</h3><p>进入hexo的博客目录，新建一篇文章<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo new post &lt;title&gt;</span></div></pre></td></tr></table></figure></p>
 <p>在<code>soure/_posts</code>目录下会生成一个文件<code>xxx.md</code>的文件。</p>
-<p>举例：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cd ~/test/myblog/</div><div class="line"><span class="meta">$</span> hexo new post test01</div><div class="line">INFO  Created: ~/test/myblog/source/_posts/test01.md</div></pre></td></tr></table></figure></p>
+<p>举例：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/<span class="built_in">test</span>/myblog/</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo new post <span class="built_in">test</span>01</span></div><div class="line">INFO  Created: ~/test/myblog/source/_posts/test01.md</div></pre></td></tr></table></figure></p>
 <p>提示文章已经创建文件<code>~/test/myblog/source/_posts/test01.md</code>，打开此文件，编辑文章。</p>
 <p>由于默认的布局就是<code>post</code>，所以我们可以简化命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new &lt;title&gt;</div></pre></td></tr></table></figure></p>
 <p>如果需要使得默认新建的文章是草稿<code>soure/_drafts</code>，则修改配置文件的<code>default_layout</code> 。<br>打开配置文件<code>_config.yml</code>，修改如下配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">default_layout: draft</div></pre></td></tr></table></figure></p>
@@ -226,7 +226,7 @@ var _hmt = _hmt || [];
 <li>Atom</li>
 <li>Typora</li>
 </ul>
-<h3 id="2-写草稿"><a href="#2-写草稿" class="headerlink" title="2.写草稿"></a>2.写草稿</h3><p>使用命令新建一篇草稿<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo new draft &lt;title&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="2-写草稿"><a href="#2-写草稿" class="headerlink" title="2.写草稿"></a>2.写草稿</h3><p>使用命令新建一篇草稿<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo new draft &lt;title&gt;</span></div></pre></td></tr></table></figure></p>
 <p>草稿文件保存在<code>soure/_drafts</code>中。<br>当部署文章的时候，草稿是不会发布的。</p>
 <p>可通过 <code>publish</code> 命令将草稿移动到 <code>source/_posts</code> 文件夹，该命令的使用方式与 <code>new</code> 十分类似，您也可在命令中指定 <code>layout</code> 来指定布局。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo publish [layout] &lt;title&gt;</div></pre></td></tr></table></figure></p>
 <p>草稿默认不会显示在页面中，您可在执行时加上 <code>--draft</code> 参数，或是把 <code>render_drafts</code> 参数设为 true 来预览草稿。</p>
@@ -546,38 +546,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">BBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringBoot,热部署</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Vue,博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -602,6 +570,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Linux,截图,Kazam</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
@@ -610,11 +582,43 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linux,截图,Kazam</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">BBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringBoot,热部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vue,博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>
